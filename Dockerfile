@@ -30,7 +30,8 @@ RUN wget --no-check-certificate -q -O opencv.zip \
     && unzip opencv.zip \
     && wget --no-check-certificate -q -O opencv_contrib.zip \
     https://github.com/opencv/opencv_contrib/archive/${OPENCV_CONTRIB_VERSION}.zip \
-    && unzip opencv_contrib.zip
+    && unzip opencv_contrib.zip \
+    && rm -rf opencv-${OPENCV_VERSION}.zip ${OPENCV_CONTRIB_VERSION}.zip
 
 RUN mkdir -p /opt/opencv/opencv-${OPENCV_VERSION}/build \
     && (cd /opt/opencv/opencv-${OPENCV_VERSION}/build \
